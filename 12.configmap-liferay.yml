@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-liferay
+data:
+  portal-ext.properties: |
+    jdbc.default.driverClassName=com.mysql.cj.jdbc.Driver
+    jdbc.default.url=jdbc:mysql://database:3306/lportal?dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&useFastDateParsing=false
+    jdbc.default.username=roto2
+    jdbc.default.password=roto2
+    retry.jdbc.on.startup.delay=5
+    retry.jdbc.on.startup.max.retries=5
+    company.default.name=Liferay Kubernetes
+    company.default.web.id=liferay.com
+    com.liferay.portal.servlet.filters.gzip.GZipFilter=false
+    com.liferay.portal.servlet.filters.sso.ntlm.NtlmFilter=false
+    com.liferay.portal.servlet.filters.sso.ntlm.NtlmPostFilter=false
+    cluster.link.enabled=true
+    ehcache.cluster.link.replication.enabled=true
+    cluster.link.autodetect.address=database:3306
